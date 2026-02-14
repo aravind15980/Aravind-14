@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#ff758c">
 
-<title>For My Ponnu ❤️</title>
+<title> Ummah 😘❤️</title>
 
 <style>
 *{
@@ -14,13 +15,13 @@
     box-sizing:border-box;
 }
 
+/* Fix mobile height issues */
 html,body{
     width:100%;
     height:100%;
     font-family:'Segoe UI', sans-serif;
 }
 
-/* Default Background */
 body{
     min-height:100vh;
     display:flex;
@@ -33,19 +34,31 @@ body{
     padding:20px;
 }
 
-/* FINAL PAGE FULL IMAGE */
+/* FINAL PAGE FULLSCREEN IMAGE */
 .final-bg{
     background-image:url("DSC03398.jpg");
     background-size:cover;
-    background-position:center;
+    background-position:center center;
     background-repeat:no-repeat;
 
     width:100vw;
     height:100vh;
 
     display:flex;
-    align-items:flex-start;
+    align-items:flex-end;
     justify-content:center;
+
+    /* Move text upward */
+    padding-bottom:120px;
+    padding-bottom:calc(120px + env(safe-area-inset-bottom));
+}
+
+/* Extra adjustment for small mobile screens */
+@media (max-width:480px){
+    .final-bg{
+        padding-bottom:160px;
+        padding-bottom:calc(160px + env(safe-area-inset-bottom));
+    }
 }
 
 /* Question Card */
@@ -60,41 +73,21 @@ body{
     animation:fadeIn 1s ease;
 }
 
-/* FINAL MESSAGE GLASS BOX */
+/* Final Text (no box) */
 .final-text{
     position:relative;
     z-index:2;
-    padding:22px 30px;
-    border-radius:20px;
-
-    background:rgba(0,0,0,0.25);
-    backdrop-filter:blur(8px);
-
-    /* 👇 pushes box lower so faces remain visible */
-    margin-top:clamp(100px,20vh,180px);
-
-    animation:fadeInUp 1.2s ease;
+    padding:0;
 }
 
-/* Romantic Heading */
-.final-bg h1{
-    font-size:clamp(2rem,6vw,2.8rem);
-    font-weight:700;
-    letter-spacing:1px;
-
-    background:linear-gradient(45deg,#ff4d6d,#ff758c,#ffb3c1);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-
-    text-shadow:0 4px 25px rgba(255,77,109,0.35);
+/* Text */
+h1{
+    font-size:clamp(1.6rem,5vw,2.3rem);
+    margin-bottom:15px;
 }
 
-/* Subtext */
-.final-bg p{
-    margin-top:12px;
-    font-size:clamp(1.1rem,4vw,1.5rem);
-    color:#ffe4ec;
-    text-shadow:0 3px 12px rgba(0,0,0,0.9);
+p{
+    font-size:clamp(1.1rem,4vw,1.4rem);
 }
 
 /* Buttons */
@@ -125,21 +118,9 @@ button:active{
     transform:scale(0.95);
 }
 
-/* Animations */
 @keyframes fadeIn{
     from{opacity:0; transform:translateY(30px);}
     to{opacity:1; transform:translateY(0);}
-}
-
-@keyframes fadeInUp{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
 }
 
 /* Floating Hearts */
@@ -154,6 +135,23 @@ button:active{
 @keyframes float{
     from{transform:translateY(0); opacity:1;}
     to{transform:translateY(-110vh); opacity:0;}
+}
+
+/* Valentine's Text Style */
+.final-bg h1{
+    color:#ff4d6d;
+    text-shadow:
+        3px 3px 10px rgba(0,0,0,0.95),
+        -2px -2px 8px rgba(0,0,0,0.8);
+    font-weight:700;
+}
+
+.final-bg p{
+    color:#ff4d6d;
+    text-shadow:
+        3px 3px 10px rgba(0,0,0,0.95),
+        -2px -2px 8px rgba(0,0,0,0.8);
+    font-weight:700;
 }
 </style>
 </head>
@@ -200,7 +198,7 @@ function renderStep(step){
 function wrong(){
     const content = document.getElementById("content");
     content.innerHTML = `
-        <h1>Angane parayalle shuttu… 😄</h1>
+        <h1>ശന്തിക്ക് അടി തരുമേ ... 😄</h1>
         <button class="yes" onclick="renderStep(${currentStep})">Retry ❤️</button>
     `;
 }
@@ -213,8 +211,8 @@ function finalPage(){
     content.className = "final-text";
 
     content.innerHTML = `
-        <h1>Happy Valentine's Day Ponnu❤️</h1>
-        <p>Kettipidich Ummah 😘💕</p>
+        <h1>Happy Valentine's Day Ponnu ❤️</h1>
+        <p> Kettipidich Ummah  😘💖</p>
     `;
 
     startHearts();
@@ -240,3 +238,6 @@ renderStep(0);
 
 </body>
 </html>
+
+
+
