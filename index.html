@@ -199,7 +199,7 @@ function renderStep(step){
 
     if(step === 0){
         content.innerHTML = `
-            <h1>Ente ഷുട്ടുമണി ആരാ ? 🥺</h1>
+            <h1>Ente ഷുട്ടുമണി ആരാ ? 😘</h1>
             <button class="yes" onclick="renderStep(1)">നാനാ</button>
             <button class="no" onclick="wrong()">ആ....</button>
         `;
@@ -225,7 +225,7 @@ function renderStep(step){
 function wrong(){
     const content = document.getElementById("content");
     content.innerHTML = `
-        <h1>ശന്തിക്ക് അടി തരുമേ ... 😄</h1>
+        <h1>ശന്തിക്ക് അടി തരുമേ !</h1>
         <button class="yes" onclick="renderStep(${currentStep})">Retry ❤️</button>
     `;
 }
@@ -262,3 +262,4 @@ renderStep(0);
 
 </body>
 </html>
+
