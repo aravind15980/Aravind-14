@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#ff758c">
 
 <title> Ummah 😘❤️</title>
-
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 <style>
 *{
     margin:0;
@@ -134,48 +134,54 @@ button:active{
     from{transform:translateY(0); opacity:1;}
     to{transform:translateY(-110vh); opacity:0;}
 }
-
-/* ✨ MODERN ANIMATED VALENTINE TEXT */
+/* ✨ TRENDING MODERN VALENTINE STYLE */
 .final-bg h1{
-    font-size:30px;
-    font-weight:800;
-    color:#ff4d6d;
-    letter-spacing:2px;
+    font-family:'Great Vibes', cursive;
+    font-size:clamp(38px,8vw,52px);
+    font-weight:400;
 
-    /* 3D Depth Effect */
+    color:#ff2e63;
+
+    /* Rich romantic glow */
     text-shadow:
-        1px 1px 0 #c9184a,
-        2px 2px 0 #c9184a,
-        3px 3px 0 #c9184a,
-        4px 4px 0 #c9184a,
-        5px 5px 10px rgba(0,0,0,0.6);
+        0 4px 10px rgba(0,0,0,0.4),
+        0 0 18px rgba(255,46,99,0.55),
+        0 0 30px rgba(255,105,135,0.35);
 
-    animation:loveShine 4s linear infinite;
+    letter-spacing:1px;
+
+    animation:romanticBreath 3.5s ease-in-out infinite;
 }
 
-/* Sub text */
+/* Sub Text */
 .final-bg p{
-    font-size:30px;
-    font-weight:800;
-    color:#ff4d6d;
-    letter-spacing:2px;
+    font-family:'Montserrat', sans-serif;
+    font-size:clamp(16px,4.5vw,20px);
+    font-weight:600;
 
-    /* 3D Depth Effect */
-    text-shadow:
-        1px 1px 0 #c9184a,
-        2px 2px 0 #c9184a,
-        3px 3px 0 #c9184a,
-        4px 4px 0 #c9184a,
-        5px 5px 10px rgba(0,0,0,0.6);
+    color:#fff0f3;
 
-    animation:loveShine 4s linear infinite;
+    text-shadow:0 3px 10px rgba(0,0,0,0.5);
+
+    margin-top:8px;
+
+    animation:romanticBreath 3.5s ease-in-out infinite;
 }
+
 
 /* Shine Animation */
-@keyframes loveShine{
-    0%{ background-position:0% center; }
-    100%{ background-position:300% center; }
+@keyframes romanticBreath{
+    0%,100%{
+        transform:scale(1);
+        opacity:0.95;
+    }
+    50%{
+        transform:scale(1.06);
+        opacity:1;
+    }
 }
+
+
 </style>
 </head>
 
@@ -193,7 +199,7 @@ function renderStep(step){
 
     if(step === 0){
         content.innerHTML = `
-            <h1>Ente ഷുട്ടുമണി ആരാ ? 😘</h1>
+            <h1>Ente ഷുട്ടുമണി ആരാ ? 🥺</h1>
             <button class="yes" onclick="renderStep(1)">നാനാ</button>
             <button class="no" onclick="wrong()">ആ....</button>
         `;
@@ -219,7 +225,7 @@ function renderStep(step){
 function wrong(){
     const content = document.getElementById("content");
     content.innerHTML = `
-        <h1>ശന്തിക്ക് അടി തരുമേ !</h1>
+        <h1>ശന്തിക്ക് അടി തരുമേ ... 😄</h1>
         <button class="yes" onclick="renderStep(${currentStep})">Retry ❤️</button>
     `;
 }
@@ -256,8 +262,3 @@ renderStep(0);
 
 </body>
 </html>
-
-
-
-
-
