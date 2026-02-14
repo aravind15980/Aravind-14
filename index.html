@@ -15,14 +15,15 @@
     box-sizing:border-box;
 }
 
+/* Fix mobile height issues */
 html,body{
     width:100%;
     height:100%;
     font-family:'Segoe UI', sans-serif;
 }
 
-/* Default Background */
 body{
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -33,17 +34,20 @@ body{
     padding:20px;
 }
 
-/* Final Page → Show Full Image */
+/* FINAL PAGE FULLSCREEN IMAGE */
 .final-bg{
     background-image:url("DSC03398.jpg"); /* keep image in same folder */
-    background-size:contain;
-    background-position:center;
+    background-size:cover;                /* fill entire screen */
+    background-position:center center;
     background-repeat:no-repeat;
-    background-color:black;
 
-    align-items:flex-end;
+    width:100vw;
+    height:100vh;
+
+    display:flex;
+    align-items:flex-end;                 /* move text slightly down */
     justify-content:center;
-    padding-bottom:60px;
+    padding-bottom:70px;
 }
 
 /* Question Card */
@@ -58,11 +62,10 @@ body{
     animation:fadeIn 1s ease;
 }
 
-/* Final Text → remove card look */
+/* Final Text (no box) */
 .final-text{
-    background:none;
-    box-shadow:none;
-    backdrop-filter:none;
+    position:relative;
+    z-index:2;
     padding:0;
 }
 
@@ -123,18 +126,18 @@ button:active{
     to{transform:translateY(-110vh); opacity:0;}
 }
 
-/* Final Page Valentine's Text */
+/* Valentine's Text Style */
 .final-bg h1{
     color:#ff4d6d;
     text-shadow:
-        3px 3px 8px rgba(0,0,0,0.9),
-        -2px -2px 6px rgba(0,0,0,0.7);
+        3px 3px 10px rgba(0,0,0,0.95),
+        -2px -2px 8px rgba(0,0,0,0.8);
     font-weight:700;
 }
 
 .final-bg p{
     color:#ffd1dc;
-    text-shadow:2px 2px 6px rgba(0,0,0,0.9);
+    text-shadow:2px 2px 8px rgba(0,0,0,0.9);
 }
 </style>
 </head>
@@ -177,7 +180,7 @@ function renderStep(step){
     }
 }
 
-/* Wrong Answer Page */
+/* Wrong Answer */
 function wrong(){
     const content = document.getElementById("content");
     content.innerHTML = `
@@ -201,7 +204,7 @@ function finalPage(){
     startHearts();
 }
 
-/* Floating Hearts Animation */
+/* Floating Hearts */
 function startHearts(){
     setInterval(()=>{
         const heart=document.createElement("div");
@@ -215,7 +218,7 @@ function startHearts(){
     },300);
 }
 
-/* Load First Question */
+/* Load First Page */
 renderStep(0);
 </script>
 
