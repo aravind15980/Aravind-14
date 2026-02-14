@@ -2,26 +2,21 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#ff758c">
 
 <title>Ummah 😘❤️</title>
 
-<!-- Modern Romantic Fonts -->
+<!-- Romantic Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 html,body{
     width:100%;
     height:100%;
-    font-family:'Segoe UI', sans-serif;
+    font-family:'Montserrat',sans-serif;
 }
 
 body{
@@ -29,152 +24,163 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background: linear-gradient(135deg,#ff758c,#ff7eb3);
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
     color:white;
-    text-align:center;
     overflow:hidden;
     padding:20px;
 }
 
-/* FINAL PAGE FULLSCREEN IMAGE */
+/* ---------------- QUESTION GLASS CARD ---------------- */
+.container{
+    width:100%;
+    max-width:360px;
+    padding:35px 25px;
+    border-radius:28px;
+
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,0.25);
+    box-shadow:0 25px 60px rgba(0,0,0,.25);
+
+    animation:fadeUp .6s ease;
+    text-align:center;
+}
+
+.container h1{
+    font-size:22px;
+    margin-bottom:25px;
+}
+
+/* Buttons */
+button{
+    width:85%;
+    padding:14px;
+    margin:10px auto;
+    border:none;
+    border-radius:30px;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+    display:block;
+}
+
+.yes{
+    background:linear-gradient(135deg,#ff4e78,#ff758c);
+    color:white;
+    box-shadow:0 10px 25px rgba(255,78,120,.4);
+}
+
+.no{
+    background:rgba(0,0,0,0.25);
+    color:white;
+}
+
+button:hover{transform:scale(1.05);}
+button:active{transform:scale(.95);}
+
+/* ---------------- FINAL PAGE ---------------- */
 .final-bg{
     position:relative;
-    background-image:url("DSC03398.jpg");
-    background-size:cover;
-    background-position:center center;
-    background-repeat:no-repeat;
-
+    background:url("DSC03398.jpg") center/cover no-repeat;
     width:100vw;
     height:100vh;
 
     display:flex;
     align-items:flex-end;
     justify-content:center;
-
     padding-bottom:120px;
-    padding-bottom:calc(120px + env(safe-area-inset-bottom));
 }
 
-/* ✨ Readability Overlay (modern website trick) */
 .final-bg::before{
     content:"";
     position:absolute;
     inset:0;
-
-    background:linear-gradient(
-        to top,
-        rgba(0,0,0,0.65) 0%,
-        rgba(0,0,0,0.35) 35%,
-        rgba(0,0,0,0.10) 60%,
-        rgba(0,0,0,0) 80%
-    );
-
-    z-index:1;
+    background:linear-gradient(to top,rgba(0,0,0,.65),transparent);
 }
 
-/* Question Card */
-.container{
-    width:100%;
-    max-width:420px;
-    background:rgba(0,0,0,0.45);
-    padding:30px 20px;
-    border-radius:20px;
-    backdrop-filter:blur(12px);
-    box-shadow:0 10px 25px rgba(0,0,0,0.3);
-    animation:fadeIn 1s ease;
-}
-
-/* Final Text */
 .final-text{
     position:relative;
     z-index:2;
-    padding:0 20px;
+    text-align:center;
 }
 
-/* Buttons */
-button{
-    width:80%;
-    max-width:260px;
-    padding:14px;
-    margin:10px auto;
-    font-size:1rem;
-    border:none;
-    border-radius:30px;
-    cursor:pointer;
-    transition:0.3s;
-    display:block;
+/* Final Text Style */
+.final-bg h1{
+    font-family:'Great Vibes',cursive;
+    font-size:52px;
+    color:#ff2e63;
+    text-shadow:0 10px 25px rgba(0,0,0,.7);
+    animation:breath 3.5s ease-in-out infinite;
 }
 
-.yes{
+.final-bg p{
+    font-size:18px;
+    margin-top:10px;
+}
+
+/* ---------------- POPUP ---------------- */
+.popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.5);
+    backdrop-filter:blur(6px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+.popup-box{
+    width:85%;
+    max-width:300px;
     background:white;
-    color:#ff4e78;
+    color:#333;
+    padding:25px 20px;
+    border-radius:22px;
+    text-align:center;
+    box-shadow:0 20px 50px rgba(0,0,0,.3);
+    animation:pop .35s ease;
 }
 
-.no{
-    background:#333;
+.popup-box h2{margin-bottom:10px;}
+
+.popup-box button{
+    background:#ff4e78;
     color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:20px;
+    margin-top:15px;
 }
 
-button:active{
-    transform:scale(0.95);
-}
-
-/* Animations */
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(30px);}
-    to{opacity:1; transform:translateY(0);}
-}
-
-/* Floating Hearts */
+/* ---------------- HEARTS ---------------- */
 .heart{
     position:fixed;
     bottom:-20px;
-    font-size:22px;
     animation:float 5s linear infinite;
-    pointer-events:none;
 }
 
+/* Animations */
 @keyframes float{
-    from{transform:translateY(0); opacity:1;}
-    to{transform:translateY(-110vh); opacity:0;}
+    from{transform:translateY(0);}
+    to{transform:translateY(-110vh);}
 }
 
-/* 💖 MAIN VALENTINE TEXT */
-.final-bg h1{
-    font-family:'Great Vibes', cursive;
-    font-size:clamp(40px,8vw,56px);
-    color:#ff2e63;
-
-    text-shadow:
-        0 3px 6px rgba(0,0,0,0.9),
-        0 10px 25px rgba(0,0,0,0.7),
-        0 0 22px rgba(255,46,99,0.6);
-
-    animation:romanticBreath 3.5s ease-in-out infinite;
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(40px);}
+    to{opacity:1;transform:translateY(0);}
 }
 
-/* Sub Text */
-.final-bg p{
-    font-family:'Montserrat', sans-serif;
-    font-size:clamp(16px,4.5vw,20px);
-    font-weight:600;
-    color:#fff5f7;
-
-    text-shadow:
-        0 3px 6px rgba(0,0,0,0.9),
-        0 6px 18px rgba(0,0,0,0.7);
+@keyframes pop{
+    from{transform:scale(.7);opacity:0;}
+    to{transform:scale(1);opacity:1;}
 }
 
-/* Breathing Animation */
-@keyframes romanticBreath{
-    0%,100%{
-        transform:scale(1);
-        opacity:0.95;
-    }
-    50%{
-        transform:scale(1.06);
-        opacity:1;
-    }
+@keyframes breath{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.05);}
 }
 </style>
 </head>
@@ -184,31 +190,30 @@ button:active{
 <div class="container" id="content"></div>
 
 <script>
-let currentStep = 0;
+let currentStep=0;
 
+/* Render Questions */
 function renderStep(step){
-    const content = document.getElementById("content");
-    currentStep = step;
-    content.className = "container";
+    const content=document.getElementById("content");
+    currentStep=step;
+    content.className="container";
 
-    if(step === 0){
-        content.innerHTML = `
+    if(step===0){
+        content.innerHTML=`
             <h1>Ente ഷുട്ടുമണി ആരാ ? 😘</h1>
             <button class="yes" onclick="renderStep(1)">നാനാ</button>
             <button class="no" onclick="wrong()">ആ....</button>
         `;
     }
-
-    else if(step === 1){
-        content.innerHTML = `
+    else if(step===1){
+        content.innerHTML=`
             <h1>Ente ശുണ്ടാപ്പി ആരാ ? 😘</h1>
             <button class="yes" onclick="renderStep(2)">നാനാ</button>
             <button class="no" onclick="wrong()">ആ....</button>
         `;
     }
-
-    else if(step === 2){
-        content.innerHTML = `
+    else if(step===2){
+        content.innerHTML=`
             <h1>Ente പൊന്നു ആരാ ? ❤️</h1>
             <button class="yes" onclick="finalPage()">നാനാ</button>
             <button class="no" onclick="wrong()">ആ....</button>
@@ -216,21 +221,33 @@ function renderStep(step){
     }
 }
 
+/* Popup when wrong */
 function wrong(){
-    const content = document.getElementById("content");
-    content.innerHTML = `
-        <h1>ശന്തിക്ക് അടി തരുമേ !</h1>
-        <button class="yes" onclick="renderStep(${currentStep})">Retry ❤️</button>
+    const popup=document.createElement("div");
+    popup.className="popup";
+
+    popup.innerHTML=`
+        <div class="popup-box">
+            <h2>ശന്തിക്ക് അടി തരുമേ !</h2>
+            <button onclick="closePopup()">Retry ❤️</button>
+        </div>
     `;
+
+    document.body.appendChild(popup);
 }
 
+function closePopup(){
+    document.querySelector(".popup").remove();
+}
+
+/* Final Page */
 function finalPage(){
     document.body.classList.add("final-bg");
 
-    const content = document.getElementById("content");
-    content.className = "final-text";
+    const content=document.getElementById("content");
+    content.className="final-text";
 
-    content.innerHTML = `
+    content.innerHTML=`
         <h1>Happy Valentine's Day Ponnu ❤️</h1>
         <p>Kettipidich Ummah 💖</p>
     `;
@@ -238,15 +255,15 @@ function finalPage(){
     startHearts();
 }
 
+/* Floating Hearts */
 function startHearts(){
     setInterval(()=>{
         const heart=document.createElement("div");
         heart.className="heart";
-        heart.innerHTML="😘";
+        heart.innerHTML="❤️";
         heart.style.left=Math.random()*100+"vw";
         heart.style.fontSize=(Math.random()*20+18)+"px";
         document.body.appendChild(heart);
-
         setTimeout(()=>heart.remove(),5000);
     },300);
 }
