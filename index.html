@@ -163,7 +163,7 @@ function nextStep(step){
 
     if(step===1){
         content.innerHTML=`
-            <h1>എൻ്റെ ശുണ്ടാപ്പി ആരാ ? 😘</h1>
+            <h1>Ente ശുണ്ടാപ്പി ആരാ ? 😘</h1>
             <button class="yes" onclick="nextStep(2)">നാനാ</button>
             <button class="no" onclick="wrong()">ആ....</button>
         `;
@@ -171,7 +171,7 @@ function nextStep(step){
 
     else if(step===2){
         content.innerHTML=`
-            <h1>എൻ്റെ പൊന്നു ആരാ ? ❤️</h1>
+            <h1>Ente പൊന്നു ആരാ ? ❤️</h1>
             <button class="yes" onclick="finalPage()">നാനാ</button>
             <button class="no" onclick="wrong()">ആ....</button>
         `;
@@ -181,8 +181,8 @@ function nextStep(step){
 function wrong(){
     const content=document.getElementById("content");
     content.innerHTML=`
-        <h1>അങ്ങനെ പറയല്ലേ ഷുട്ടൂ ... 🥹</h1>
-        <button class="yes" onclick="location.reload()">ശന്തിക്ക് അടി തരുമേ,Retry ❤️</button>
+        <h1>ശന്തിക്ക് അടി തരുമേ ...</h1>
+        <button class="yes" onclick="location.reload()">Retry ❤️</button>
     `;
 }
 
@@ -219,3 +219,4 @@ function startHearts(){
 
 </body>
 </html>
+
