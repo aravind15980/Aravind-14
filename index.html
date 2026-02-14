@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#ff758c">
+
+<title>For My Ponnu ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    font-family:'Segoe UI', sans-serif;
+}
+
+/* Default Background */
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg,#ff758c,#ff7eb3);
+    color:white;
+    text-align:center;
+    overflow:hidden;
+    padding:20px;
+}
+
+/* Final Page → Show Full Image */
+.final-bg{
+    background-image:url("DSC03398.jpg");
+    background-size:contain;      /* shows FULL image */
+    background-position:center;
+    background-repeat:no-repeat;
+    background-color:black;       /* fills empty space nicely */
+
+    /* Move content slightly lower */
+    align-items:flex-end;
+    justify-content:center;
+    padding-bottom:60px;
+}
+
+/* Question Card */
+.container{
+    width:100%;
+    max-width:420px;
+    background:rgba(0,0,0,0.45);
+    padding:30px 20px;
+    border-radius:20px;
+    backdrop-filter:blur(12px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+    animation:fadeIn 1s ease;
+}
+
+/* Final Text (NO BOX) */
+.final-text{
+    background:none;
+    box-shadow:none;
+    backdrop-filter:none;
+    padding:0;
+}
+
+/* Text */
+h1{
+    font-size:clamp(1.6rem,5vw,2.3rem);
+    margin-bottom:15px;
+}
+
+p{
+    font-size:clamp(1.1rem,4vw,1.4rem);
+}
+
+/* Buttons */
+button{
+    width:80%;
+    max-width:260px;
+    padding:14px;
+    margin:10px auto;
+    font-size:1rem;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    transition:0.3s;
+    display:block;
+}
+
+.yes{
+    background:white;
+    color:#ff4e78;
+}
+
+.no{
+    background:#333;
+    color:white;
+}
+
+button:active{
+    transform:scale(0.95);
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* Floating Hearts */
+.heart{
+    position:fixed;
+    bottom:-20px;
+    font-size:22px;
+    animation:float 5s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes float{
+    from{transform:translateY(0); opacity:1;}
+    to{transform:translateY(-110vh); opacity:0;}
+}
+
+/* Final Page Valentine's Text Color */
+
+.final-bg h1{
+    color:#ff4d6d;   /* Valentine pink/red */
+
+    /* Strong black shadow for visibility */
+    text-shadow:
+        3px 3px 8px rgba(0,0,0,0.9),
+        -2px -2px 6px rgba(0,0,0,0.7);
+
+    font-weight:700;
+}
+.final-bg p{
+    color:#ffd1dc;
+
+    text-shadow:
+        2px 2px 6px rgba(0,0,0,0.9);
+
+    font-weight:500;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div class="container" id="content">
+    <h1>എൻ്റെ ഷുട്ടുമണി ആരാ ? 🥺</h1>
+    <button class="yes" onclick="nextStep(1)">നാനാ</button>
+    <button class="no" onclick="wrong()">ആ....</button>
+</div>
+
+<script>
+function nextStep(step){
+    const content=document.getElementById("content");
+
+    if(step===1){
+        content.innerHTML=`
+            <h1>എൻ്റെ ശുണ്ടാപ്പി ആരാ ? 😘</h1>
+            <button class="yes" onclick="nextStep(2)">നാനാ</button>
+            <button class="no" onclick="wrong()">ആ....</button>
+        `;
+    }
+
+    else if(step===2){
+        content.innerHTML=`
+            <h1>എൻ്റെ പൊന്നു ആരാ ? ❤️</h1>
+            <button class="yes" onclick="finalPage()">നാനാ</button>
+            <button class="no" onclick="wrong()">ആ....</button>
+        `;
+    }
+}
+
+function wrong(){
+    const content=document.getElementById("content");
+    content.innerHTML=`
+        <h1>അങ്ങനെ പറയല്ലേ ഷുട്ടൂ ... 🥹</h1>
+        <button class="yes" onclick="location.reload()">ശന്തിക്ക് അടി തരുമേ,Retry ❤️</button>
+    `;
+}
+
+function finalPage(){
+    document.body.classList.add("final-bg");
+
+    const content=document.getElementById("content");
+
+    /* Remove card look */
+    content.classList.add("final-text");
+
+    content.innerHTML=`
+        <h1>Happy Valentine's Day Ponnu ❤️</h1>
+        <p>I Love You So Much 💖</p>
+    `;
+
+    startHearts();
+}
+
+/* Floating Hearts */
+function startHearts(){
+    setInterval(()=>{
+        const heart=document.createElement("div");
+        heart.className="heart";
+        heart.innerHTML="❤️";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.fontSize=(Math.random()*20+18)+"px";
+        document.body.appendChild(heart);
+
+        setTimeout(()=>heart.remove(),5000);
+    },300);
+}
+</script>
+
+</body>
+</html>
