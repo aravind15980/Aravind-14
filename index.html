@@ -15,7 +15,6 @@
     box-sizing:border-box;
 }
 
-/* Fix mobile height issues */
 html,body{
     width:100%;
     height:100%;
@@ -48,12 +47,10 @@ body{
     align-items:flex-end;
     justify-content:center;
 
-    /* Move text upward */
     padding-bottom:120px;
     padding-bottom:calc(120px + env(safe-area-inset-bottom));
 }
 
-/* Extra adjustment for small mobile screens */
 @media (max-width:480px){
     .final-bg{
         padding-bottom:160px;
@@ -73,7 +70,7 @@ body{
     animation:fadeIn 1s ease;
 }
 
-/* Final Text (no box) */
+/* Final Text */
 .final-text{
     position:relative;
     z-index:2;
@@ -118,6 +115,7 @@ button:active{
     transform:scale(0.95);
 }
 
+/* Animations */
 @keyframes fadeIn{
     from{opacity:0; transform:translateY(30px);}
     to{opacity:1; transform:translateY(0);}
@@ -137,21 +135,56 @@ button:active{
     to{transform:translateY(-110vh); opacity:0;}
 }
 
-/* Valentine's Text Style */
+/* ✨ MODERN ANIMATED VALENTINE TEXT */
 .final-bg h1{
-    color:#ff4d6d;
-    text-shadow:
-        3px 3px 10px rgba(0,0,0,0.95),
-        -2px -2px 8px rgba(0,0,0,0.8);
-    font-weight:700;
+    font-weight:800;
+    letter-spacing:1.5px;
+
+    background:linear-gradient(
+        90deg,
+        #ff4d6d,
+        #ff758c,
+        #ffd1dc,
+        #ff758c,
+        #ff4d6d
+    );
+    background-size:300% auto;
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:0 6px 25px rgba(255,77,109,0.35);
+
+    animation:loveShine 4s linear infinite;
 }
 
+/* Sub text */
 .final-bg p{
-    color:#ff4d6d;
-    text-shadow:
-        3px 3px 10px rgba(0,0,0,0.95),
-        -2px -2px 8px rgba(0,0,0,0.8);
-    font-weight:700;
+    font-weight:800;
+    letter-spacing:1.5px;
+
+    background:linear-gradient(
+        90deg,
+        #ff4d6d,
+        #ff758c,
+        #ffd1dc,
+        #ff758c,
+        #ff4d6d
+    );
+    background-size:300% auto;
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:0 6px 25px rgba(255,77,109,0.35);
+
+    animation:loveShine 4s linear infinite;
+}
+
+/* Shine Animation */
+@keyframes loveShine{
+    0%{ background-position:0% center; }
+    100%{ background-position:300% center; }
 }
 </style>
 </head>
@@ -163,7 +196,6 @@ button:active{
 <script>
 let currentStep = 0;
 
-/* Render Questions */
 function renderStep(step){
     const content = document.getElementById("content");
     currentStep = step;
@@ -194,7 +226,6 @@ function renderStep(step){
     }
 }
 
-/* Wrong Answer */
 function wrong(){
     const content = document.getElementById("content");
     content.innerHTML = `
@@ -203,7 +234,6 @@ function wrong(){
     `;
 }
 
-/* Final Page */
 function finalPage(){
     document.body.classList.add("final-bg");
 
@@ -212,13 +242,12 @@ function finalPage(){
 
     content.innerHTML = `
         <h1>Happy Valentine's Day Ponnu ❤️</h1>
-        <p> Kettipidich Ummah  😘💖</p>
+        <p>Kettipidich Ummah 💖</p>
     `;
 
     startHearts();
 }
 
-/* Floating Hearts */
 function startHearts(){
     setInterval(()=>{
         const heart=document.createElement("div");
@@ -232,12 +261,8 @@ function startHearts(){
     },300);
 }
 
-/* Load First Page */
 renderStep(0);
 </script>
 
 </body>
 </html>
-
-
-
