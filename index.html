@@ -36,8 +36,8 @@ body{
 
 /* FINAL PAGE FULLSCREEN IMAGE */
 .final-bg{
-    background-image:url("DSC03398.jpg"); /* keep image in same folder */
-    background-size:cover;                /* fill entire screen */
+    background-image:url("DSC03398.jpg");
+    background-size:cover;
     background-position:center center;
     background-repeat:no-repeat;
 
@@ -45,9 +45,20 @@ body{
     height:100vh;
 
     display:flex;
-    align-items:flex-end;                 /* move text slightly down */
+    align-items:flex-end;
     justify-content:center;
-    padding-bottom:70px;
+
+    /* Move text upward */
+    padding-bottom:120px;
+    padding-bottom:calc(120px + env(safe-area-inset-bottom));
+}
+
+/* Extra adjustment for small mobile screens */
+@media (max-width:480px){
+    .final-bg{
+        padding-bottom:160px;
+        padding-bottom:calc(160px + env(safe-area-inset-bottom));
+    }
 }
 
 /* Question Card */
